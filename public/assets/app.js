@@ -1,6 +1,8 @@
 (function () {
     const isFileProtocol = window.location.protocol === "file:";
-    const apiBaseUrl = isFileProtocol ? "http://localhost:8080" : window.location.origin;
+    const railwayApiBaseUrl = "https://employee-enrolment-production.up.railway.app";
+    const frontendBaseUrl = window.location.origin;
+    const apiBaseUrl = isFileProtocol ? "http://localhost:8080" : railwayApiBaseUrl;
 
     const storageKeys = {
         token: "employee_enrollment_token",
@@ -9,9 +11,9 @@
     };
 
     const routes = {
-        admin: apiBaseUrl + "/admin-dashboard",
-        employee: apiBaseUrl + "/employee-dashboard",
-        login: apiBaseUrl + "/"
+        admin: frontendBaseUrl + "/admin-dashboard",
+        employee: frontendBaseUrl + "/employee-dashboard",
+        login: frontendBaseUrl + "/"
     };
 
     function getToday() {
