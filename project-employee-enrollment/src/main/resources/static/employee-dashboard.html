@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="page-dashboard">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-block">
+                <p class="eyebrow">Employee Enrollment</p>
+                <h1 class="brand-title">My Workspace</h1>
+                <p class="sidebar-copy">Review your employee profile and keep your personal information up to date.</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a class="nav-link active" href="#overview">Overview</a>
+                <a class="nav-link" href="#profile">Profile Card</a>
+                <a class="nav-link" href="#editor">Update Details</a>
+            </nav>
+
+            <div class="sidebar-card">
+                <span class="sidebar-card-label">Signed In</span>
+                <strong id="employeeIdentity" class="sidebar-card-value"></strong>
+            </div>
+
+            <button id="logoutButton" class="btn btn-secondary sidebar-logout" type="button">Logout</button>
+        </aside>
+
+        <main class="workspace">
+            <header class="workspace-topbar" id="overview">
+                <div>
+                    <p class="eyebrow">Employee Workspace</p>
+                    <h2 class="workspace-title">Profile Management Dashboard</h2>
+                    <p class="section-copy">Your profile details stay in sync with the backend employee APIs so you can manage your information confidently.</p>
+                </div>
+            </header>
+
+            <section class="overview-grid employee-overview-grid">
+                <article class="highlight-card">
+                    <span class="highlight-label">Profile Access</span>
+                    <h3>Your account details at a glance</h3>
+                    <p>Review key information, then update your profile details from the form below.</p>
+                </article>
+                <div id="employeeQuickStats" class="metric-grid"></div>
+            </section>
+
+            <div id="employeeMessage" class="message hidden"></div>
+
+            <section class="workspace-grid employee-workspace-grid">
+                <section class="panel stack-lg" id="profile">
+                    <div>
+                        <p class="eyebrow">Profile Card</p>
+                        <h3 class="section-title">Current Details</h3>
+                    </div>
+                    <div id="employeeProfileCard" class="profile-card"></div>
+                </section>
+
+                <section class="panel stack-lg" id="editor">
+                    <div>
+                        <p class="eyebrow">Update Form</p>
+                        <h3 class="section-title">Edit Your Information</h3>
+                        <p class="section-copy">This form sends your updates to the employee profile endpoint.</p>
+                    </div>
+
+                    <form id="employeeProfileForm" class="stack-md">
+                        <div class="split two">
+                            <label class="field">
+                                <span>First Name</span>
+                                <input type="text" name="firstName" required>
+                            </label>
+                            <label class="field">
+                                <span>Last Name</span>
+                                <input type="text" name="lastName" required>
+                            </label>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>Email</span>
+                                <input type="email" name="email" required>
+                            </label>
+                            <label class="field">
+                                <span>Phone</span>
+                                <input type="text" name="phone" maxlength="10" pattern="\d{10}" required>
+                            </label>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>Department</span>
+                                <input type="text" name="department" required>
+                            </label>
+                            <label class="field">
+                                <span>Role</span>
+                                <input type="text" name="role" readonly>
+                            </label>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>Joining Date</span>
+                                <input type="date" name="joiningDate" required>
+                            </label>
+                            <label class="field">
+                                <span>Username</span>
+                                <input type="text" name="username" minlength="4" required>
+                            </label>
+                        </div>
+
+                        <label class="field">
+                            <span>Address</span>
+                            <input type="text" name="address" required>
+                        </label>
+
+                        <label class="field">
+                            <span>Password</span>
+                            <input type="password" name="password" minlength="8" required>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </form>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

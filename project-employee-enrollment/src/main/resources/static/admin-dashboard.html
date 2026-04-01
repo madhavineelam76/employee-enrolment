@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="page-dashboard">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-block">
+                <p class="eyebrow">Employee Enrollment</p>
+                <h1 class="brand-title">Admin Control</h1>
+                <p class="sidebar-copy">A single workspace to enroll, review, and manage your workforce.</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a class="nav-link active" href="#overview">Overview</a>
+                <a class="nav-link" href="#directory">Employee Directory</a>
+                <a class="nav-link" href="#editor">Create or Update</a>
+            </nav>
+
+            <div class="sidebar-card">
+                <span class="sidebar-card-label">Signed In</span>
+                <strong id="adminIdentity" class="sidebar-card-value"></strong>
+            </div>
+
+            <button id="logoutButton" class="btn btn-secondary sidebar-logout" type="button">Logout</button>
+        </aside>
+
+        <main class="workspace">
+            <header class="workspace-topbar" id="overview">
+                <div>
+                    <p class="eyebrow">Admin Workspace</p>
+                    <h2 class="workspace-title">Employee Operations Dashboard</h2>
+                    <p class="section-copy">Track employee records, keep statuses updated, and manage onboarding data from one production-style console.</p>
+                </div>
+                <button id="refreshEmployees" class="btn btn-secondary" type="button">Refresh Data</button>
+            </header>
+
+            <section class="overview-grid">
+                <article class="highlight-card">
+                    <span class="highlight-label">Roster Health</span>
+                    <h3>Live employee overview</h3>
+                    <p>Use the stats and directory below to see how many employees are active and quickly jump into edits.</p>
+                </article>
+                <div id="employeeSummary" class="metric-grid"></div>
+            </section>
+
+            <div id="adminMessage" class="message hidden"></div>
+
+            <section class="workspace-grid">
+                <section class="panel stack-lg" id="directory">
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">Directory</p>
+                            <h3 class="section-title">Employee Directory</h3>
+                        </div>
+                    </div>
+                    <div id="employeeTableWrap" class="table-wrap"></div>
+                </section>
+
+                <section class="panel stack-lg" id="editor">
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">Editor</p>
+                            <h3 class="section-title">Add or Update Employee</h3>
+                        </div>
+                        <button id="resetEmployeeForm" class="btn btn-secondary" type="button">Reset Form</button>
+                    </div>
+
+                    <form id="employeeForm" class="stack-md">
+                        <input type="hidden" name="empId">
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>First Name</span>
+                                <input type="text" name="firstName" required>
+                            </label>
+                            <label class="field">
+                                <span>Last Name</span>
+                                <input type="text" name="lastName" required>
+                            </label>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>Email</span>
+                                <input type="email" name="email" required>
+                            </label>
+                            <label class="field">
+                                <span>Phone</span>
+                                <input type="text" name="phone" maxlength="10" pattern="\d{10}" required>
+                            </label>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>Department</span>
+                                <input type="text" name="department" required>
+                            </label>
+                            <label class="field">
+                                <span>Role</span>
+                                <select name="role" required>
+                                    <option value="EMPLOYEE">EMPLOYEE</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field hidden" id="salaryFieldGroup">
+                                <span>Salary</span>
+                                <input type="number" name="salary" min="1" step="0.01">
+                            </label>
+                            <div class="field">
+                                <span>Compensation</span>
+                                <input type="text" value="Salary is auto-assigned on create and can be edited later." readonly>
+                            </div>
+                        </div>
+
+                        <div class="split two">
+                            <label class="field">
+                                <span>Joining Date</span>
+                                <input type="date" name="joiningDate" required>
+                            </label>
+                            <label class="field">
+                                <span>Username</span>
+                                <input type="text" name="username" minlength="4" required>
+                            </label>
+                        </div>
+
+                        <label class="field">
+                            <span>Address</span>
+                            <input type="text" name="address" required>
+                        </label>
+
+                        <label class="field">
+                            <span>Password</span>
+                            <input type="password" name="password" minlength="8" required>
+                        </label>
+
+                        <p class="section-copy">Employees are enrolled as Active by default. Salary is auto-assigned during create and appears when you edit an existing employee.</p>
+
+                        <button type="submit" class="btn btn-primary">Save Employee</button>
+                    </form>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
