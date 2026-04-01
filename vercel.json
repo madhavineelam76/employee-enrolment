@@ -8,6 +8,14 @@
     {
       "source": "/employees/(.*)",
       "destination": "https://employee-enrolment-production.up.railway.app/employees/$1"
+    },
+    {
+      "source": "/admin-dashboard",
+      "destination": "/admin-dashboard.html"
+    },
+    {
+      "source": "/employee-dashboard",
+      "destination": "/employee-dashboard.html"
     }
   ]
 }
