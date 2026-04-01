@@ -11,8 +11,8 @@
     };
 
     const routes = {
-        admin: frontendBaseUrl + "/admin-dashboard",
-        employee: frontendBaseUrl + "/employee-dashboard",
+        admin: frontendBaseUrl + "/admin-dashboard.html",
+        employee: frontendBaseUrl + "/employee-dashboard.html",
         login: frontendBaseUrl + "/"
     };
 
