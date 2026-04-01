@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Enrollment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="page-auth">
+    <main class="auth-shell">
+        <section class="hero-panel">
+            <div class="eyebrow">Employee Enrollment System</div>
+            <h1>Manage your workforce with one clean workflow.</h1>
+            <p class="hero-copy">
+                Sign in as an admin to enroll and manage employees, or sign in as an employee to update your profile.
+            </p>
+            <div class="hero-grid">
+                <article class="hero-card">
+                    <h2>Admin Controls</h2>
+                    <p>Create employee records, update profiles, and switch active status in one place.</p>
+                </article>
+                <article class="hero-card">
+                    <h2>Employee Self Service</h2>
+                    <p>Securely review and update your own profile using JWT-based login.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel stack-lg">
+            <div>
+                <p class="eyebrow">Access Portal</p>
+                <h2 class="section-title">Login</h2>
+                <p class="section-copy">Use your username or email and password to continue.</p>
+            </div>
+
+            <div id="authMessage" class="message hidden"></div>
+
+            <form id="loginForm" class="stack-md">
+                <label class="field">
+                    <span>Username or Email</span>
+                    <input type="text" name="usernameOrEmail" placeholder="admin1 or admin@example.com" required>
+                </label>
+                <label class="field">
+                    <span>Password</span>
+                    <input type="password" name="password" placeholder="Enter password" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <div class="divider"><span>or</span></div>
+
+            <div class="stack-md">
+                <button id="toggleAdminRegister" type="button" class="btn btn-secondary">Create First Admin</button>
+
+                <form id="adminRegisterForm" class="stack-md hidden">
+                    <div class="split two">
+                        <label class="field">
+                            <span>First Name</span>
+                            <input type="text" name="firstName" required>
+                        </label>
+                        <label class="field">
+                            <span>Last Name</span>
+                            <input type="text" name="lastName" required>
+                        </label>
+                    </div>
+
+                    <div class="split two">
+                        <label class="field">
+                            <span>Email</span>
+                            <input type="email" name="email" required>
+                        </label>
+                        <label class="field">
+                            <span>Phone</span>
+                            <input type="text" name="phone" maxlength="10" pattern="\d{10}" required>
+                        </label>
+                    </div>
+
+                    <div class="split two">
+                        <label class="field">
+                            <span>Department</span>
+                            <input type="text" name="department" value="Administration" required>
+                        </label>
+                        <label class="field">
+                            <span>Salary</span>
+                            <input type="number" name="salary" min="1" step="0.01" required>
+                        </label>
+                    </div>
+
+                    <div class="split two">
+                        <label class="field">
+                            <span>Joining Date</span>
+                            <input type="date" name="joiningDate" required>
+                        </label>
+                        <label class="field">
+                            <span>Username</span>
+                            <input type="text" name="username" minlength="4" required>
+                        </label>
+                    </div>
+
+                    <label class="field">
+                        <span>Address</span>
+                        <input type="text" name="address" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Password</span>
+                        <input type="password" name="password" minlength="8" required>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary">Register Admin</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script type="text/javascript">
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(
+          null,
+          null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    })(window.location);
+  </script>
+</body>
+</html>

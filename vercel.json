@@ -9,26 +9,23 @@
     {
       "source": "/employees/(.*)",
       "destination": "https://employee-enrolment-production.up.railway.app/employees/$1"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/admin-dashboard",
+      "dest": "/admin-dashboard.html"
     },
     {
-      "source": "/",
-      "destination": "/src/main/resources/static/index.html"
+      "src": "/employee-dashboard",
+      "dest": "/employee-dashboard.html"
     },
     {
-      "source": "/admin-dashboard",
-      "destination": "/src/main/resources/static/admin-dashboard.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/employee-dashboard",
-      "destination": "/src/main/resources/static/employee-dashboard.html"
-    },
-    {
-      "source": "/assets/(.*)",
-      "destination": "/src/main/resources/static/assets/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
