@@ -3,6 +3,14 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/auth/(.*)",
+      "destination": "https://employee-enrolment-production.up.railway.app/auth/$1"
+    },
+    {
+      "source": "/employees/(.*)",
+      "destination": "https://employee-enrolment-production.up.railway.app/employees/$1"
+    },
+    {
       "source": "/",
       "destination": "/src/main/resources/static/index.html"
     },
