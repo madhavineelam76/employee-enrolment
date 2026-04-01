@@ -1,21 +1,28 @@
 {
   "version": 2,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/auth/(.*)",
-      "destination": "https://employee-enrolment-production.up.railway.app/auth/$1"
+      "src": "/auth/(.*)",
+      "dest": "https://employee-enrolment-production.up.railway.app/auth/$1"
     },
     {
-      "source": "/employees/(.*)",
-      "destination": "https://employee-enrolment-production.up.railway.app/employees/$1"
+      "src": "/employees/(.*)",
+      "dest": "https://employee-enrolment-production.up.railway.app/employees/$1"
     },
     {
-      "source": "/admin-dashboard",
-      "destination": "/admin-dashboard.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/employee-dashboard",
-      "destination": "/employee-dashboard.html"
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/admin-dashboard",
+      "dest": "/admin-dashboard"
+    },
+    {
+      "src": "/employee-dashboard",
+      "dest": "/employee-dashboard"
     }
   ]
 }
